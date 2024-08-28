@@ -47,6 +47,7 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollToTop, setShowScrollToTop] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null); // Add a ref for the toggle button
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -62,7 +63,12 @@ export default function Home() {
     };
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      if (
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node) &&
+        toggleButtonRef.current && 
+        !toggleButtonRef.current.contains(event.target as Node) // Check if the click is on the toggle button
+      ) {
         setIsMobileMenuOpen(false);
       }
     };
@@ -101,6 +107,7 @@ export default function Home() {
 
           </div>
           <button
+            ref={toggleButtonRef} // Attach the ref to the toggle button
             className="text-gray-300 hover:text-blue-400 transition-colors duration-300 md:hidden"
             onClick={toggleMobileMenu}
           >
