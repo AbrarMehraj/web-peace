@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface NavLinkProps {
   href: string;
@@ -17,10 +17,11 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => (
 
 interface MobileMenuProps {
   isOpen: boolean;
+  menuRef: React.RefObject<HTMLDivElement>;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => (
-  <div className={`absolute top-full left-0 w-full bg-gray-800 sm:relative sm:bg-transparent sm:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 sm:opacity-100 sm:max-h-96'} sm:block overflow-hidden`}>
+const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, menuRef }) => (
+  <div ref={menuRef} className={`absolute top-full left-0 w-full bg-gray-800 sm:relative sm:bg-transparent sm:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 sm:opacity-100 sm:max-h-96'} sm:block overflow-hidden`}>
     <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-6 p-4 sm:p-0">
       <NavLink href="#features" onClick={(e) => { e.preventDefault(); document.querySelector('#features')?.scrollIntoView({ behavior: 'smooth' }); }}>Features</NavLink>
       <NavLink href="#screenshots" onClick={(e) => { e.preventDefault(); document.querySelector('#screenshots')?.scrollIntoView({ behavior: 'smooth' }); }}>Screenshots</NavLink>
@@ -38,9 +39,15 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen }) => (
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showScrollToTop, setShowScrollToTop] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -50,13 +57,30 @@ export default function Home() {
       }
     };
 
+    const handleScroll = () => {
+      setShowScrollToTop(window.scrollY > 0);
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
-      <header className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
+      <header className="sticky top-0 container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center bg-gray-900 z-50 shadow-custom-heavy">
         <div className="flex items-center justify-between w-full sm:w-auto mb-4 sm:mb-0">
           <div className="flex items-center">
             <h1 className="text-4xl font-bold text-blue-400 transition-colors duration-300 hover:text-blue-300">Peace</h1>
@@ -72,7 +96,7 @@ export default function Home() {
           </button>
         </div>
         <nav className="relative w-full sm:w-auto">
-          <MobileMenu isOpen={isMobileMenuOpen} />
+          <MobileMenu isOpen={isMobileMenuOpen} menuRef={menuRef} />
         </nav>
       </header>
 
@@ -126,6 +150,17 @@ export default function Home() {
       <footer className="container mx-auto px-4 py-6 text-center text-gray-400 transition-colors duration-300 hover:text-gray-300">
         <p>&copy; 2024 Peace App. Developed by Abrar Mehraj</p>
       </footer>
+
+      {showScrollToTop && (
+        <button 
+          onClick={scrollToTop} 
+          className="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-500 text-white p-3 rounded-full shadow-lg transition-all duration-300"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
