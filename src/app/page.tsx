@@ -7,10 +7,12 @@ interface NavLinkProps {
   href: string;
   children: React.ReactNode;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+  target?: string; // Add target prop
+  rel?: string;    // Add rel prop
 }
 
-const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick }) => (
-  <a href={href} onClick={onClick} className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
+const NavLink: React.FC<NavLinkProps> = ({ href, children, onClick, target, rel }) => (
+  <a href={href} onClick={onClick} target={target} rel={rel} className="text-gray-300 hover:text-blue-400 transition-colors duration-300">
     {children}
   </a>
 );
