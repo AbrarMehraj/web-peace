@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import { versions } from "./versions";
 
 interface NavLinkProps {
   href: string;
@@ -30,7 +31,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, menuRef }) => (
       <NavLink href="https://github.com/AbrarMehraj/web-peace/issues" target="_blank" rel="noopener noreferrer">
         Feedback & Issues
       </NavLink>
-      <NavLink href="/peace.apk">
+      <NavLink href="/peace.0.0.1.apk">
         <span className="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -96,7 +97,7 @@ export default function Home() {
             <NavLink href="https://github.com/AbrarMehraj/web-peace/issues" target="_blank" rel="noopener noreferrer">
               Feedback & Issues
             </NavLink>
-            <NavLink href="/peace.apk">
+            <NavLink href="/peace.0.0.1.apk">
               <span className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -123,15 +124,16 @@ export default function Home() {
       <main className="pt-20">
         <section className="bg-gray-800 py-20 text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-semibold text-blue-300 mb-6">Enjoy Your Prayer Time Without Interruptions</h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Experience tranquility in your prayer moments. Peace app seamlessly activates Do Not Disturb (DND) during your prayer times, creating a distraction-free space for deeper reflection and spiritual connection.</p>
+            <h2 className="text-4xl font-semibold text-blue-300 mb-6">Strengthen Your Spiritual Bond with Allah</h2>
+            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Foster a stronger relationship with Allah through undisturbed prayer sessions. The Peace app creates a distraction-free atmosphere by automatically activating Do Not Disturb (DND) mode during your prayer times, facilitating a more profound and significant connection with the Divine.</p>
             <a
-              href="/peace.apk"
+              href="/peace.0.0.1.apk"
               download
               className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:scale-105"
             >
               Download Peace APK
             </a>
+            <p className="mt-2">Version: {versions[0]}</p> {/* Displaying the version */}
           </div>
         </section>
 
@@ -159,9 +161,10 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <h3 className="text-3xl font-semibold text-blue-300 mb-10 text-center">App Preview</h3>
             <div className="flex flex-wrap justify-center gap-8">
-              <Image src="/screenshot1.jpeg" alt="Peace App Interface" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
-              <Image src="/screenshot2.jpeg" alt="Peace App Settings" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
-              <Image src="/screenshot3.jpeg" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
+              <Image src="/ss1.png" alt="Peace App Interface" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
+              <Image src="/ss2.png" alt="Peace App Settings" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
+              <Image src="/ss3.png" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
+              <Image src="/ss4.png" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
             </div>
           </div>
         </section>
