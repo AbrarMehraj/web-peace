@@ -31,7 +31,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, menuRef }) => (
       <NavLink href="https://github.com/AbrarMehraj/web-peace/issues" target="_blank" rel="noopener noreferrer">
         Feedback & Issues
       </NavLink>
-      <NavLink href="/peace.0.0.1.apk">
+      <NavLink href={versions[0].link}>
         <span className="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -97,7 +97,7 @@ export default function Home() {
             <NavLink href="https://github.com/AbrarMehraj/web-peace/issues" target="_blank" rel="noopener noreferrer">
               Feedback & Issues
             </NavLink>
-            <NavLink href="/peace.0.0.1.apk">
+            <NavLink href={versions[0].link}>
               <span className="flex items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -125,15 +125,16 @@ export default function Home() {
         <section className="bg-gray-800 py-20 text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-semibold text-blue-300 mb-6">Strengthen Your Spiritual Bond with Allah</h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Foster a stronger relationship with Allah through undisturbed prayer sessions. The Peace app creates a distraction-free atmosphere by automatically activating Do Not Disturb (DND) mode during your prayer times, facilitating a more profound and significant connection with the Divine.</p>
+            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Enhance your spiritual bond with Allah through uninterrupted prayer sessions. The Peace app ensures a distraction-free environment by automatically enabling Do Not Disturb (DND) mode during your prayer times, allowing for a deeper and more meaningful connection with the Divine.</p>
             <a
-              href="/peace.0.0.1.apk"
+              href={versions[0].link}
               download
               className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:scale-105"
             >
-              Download Peace APK
+              Download Latest Version
             </a>
-            <p className="mt-2">Version: {versions[0]}</p> {/* Displaying the version */}
+            <p className="mt-2">Version: {versions[0].v}</p>
+            <p className="mt-2">{versions[0]?.new}</p>
           </div>
         </section>
 
