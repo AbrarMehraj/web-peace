@@ -159,7 +159,7 @@ export default function Home() {
               
               <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
                 <h4 className="text-2xl font-semibold text-blue-300 mb-4">Auto SMS Response</h4>
-                <p className="text-gray-400">Sends automatic SMS replies to missed calls during prayer times, letting others know you're praying.</p>
+                <p className="text-gray-400">Sends automatic SMS replies to missed calls during prayer times, letting others know you are praying.</p>
               </div>
               <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
                 <h4 className="text-2xl font-semibold text-blue-300 mb-4">Flexible Silent Periods</h4>
