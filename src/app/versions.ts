@@ -2,7 +2,7 @@ export const versions = [
   {
     label: 'Peace',
     v: "0.0.2", 
-    link: "/peace.0.0.2.apk",
+    link: "/app-release.apk",
     new:"New feature: School of Thought"
   },
   {

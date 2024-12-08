@@ -88,7 +88,7 @@ export default function Home() {
       <header className="fixed top-0 left-0 w-full bg-gray-900 z-40 shadow-custom-heavy">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center">
-            <h1 className="text-3xl font-bold text-blue-400 transition-colors duration-300 hover:text-blue-300">Peace</h1>
+            <h1 className="text-3xl font-bold text-blue-400 transition-colors duration-300 hover:text-blue-300">Prayer Mode</h1>
             <Image src="/app-icon.png" alt="App Icon" width={32} height={32} className="ml-2 bg-white rounded-full transition-transform duration-300 hover:scale-110" />
           </div>
           <div className="hidden md:flex space-x-6">
@@ -124,17 +124,23 @@ export default function Home() {
       <main className="pt-20">
         <section className="bg-gray-800 py-20 text-center">
           <div className="container mx-auto px-4">
-            <h2 className="text-4xl font-semibold text-blue-300 mb-6">Strengthen Your Spiritual Bond with Allah</h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Enhance your spiritual bond with Allah through uninterrupted prayer sessions. The Peace app ensures a distraction-free environment by automatically enabling Do Not Disturb (DND) mode during your prayer times, allowing for a deeper and more meaningful connection with the Divine.</p>
-            <a
-              href={versions[0].link}
-              download
-              className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:scale-105"
-            >
-              Download Latest Version
-            </a>
-            <p className="mt-2">Version: {versions[0].v}</p>
-            <p className="mt-2">{versions[0]?.new}</p>
+            <h2 className="text-4xl font-semibold text-blue-300 mb-6">Enjoy Uninterrupted Prayer Time</h2>
+            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Experience tranquility during your prayers with Peace app. By automatically enabling Do Not Disturb (DND) mode during prayer times, Peace helps you maintain focus and devotion without any distractions.</p>
+            <div className="flex flex-col items-center">
+              <a
+                href={versions[0].link}
+                download
+                className="bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 inline-block hover:shadow-lg hover:scale-105 mb-4"
+              >
+                Download Latest Version
+              </a>
+              {/* <div className="text-center">
+                <p className="text-gray-400">Version {versions[0].v}</p>
+                {versions[0]?.new && (
+                  <p className="text-green-400 mt-1">{versions[0].new}</p>
+                )}
+              </div> */}
+            </div>
           </div>
         </section>
 
@@ -147,12 +153,25 @@ export default function Home() {
                 <p className="text-gray-400">Seamlessly switches between silent and normal modes based on your personalized schedule.</p>
               </div>
               <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
+                <h4 className="text-2xl font-semibold text-blue-300 mb-4">Auto Call Management</h4>
+                <p className="text-gray-400">Automatically declines incoming calls during prayer times, ensuring uninterrupted spiritual moments.</p>
+              </div>  
+              
+              <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
+                <h4 className="text-2xl font-semibold text-blue-300 mb-4">Auto SMS Response</h4>
+                <p className="text-gray-400">Sends automatic SMS replies to missed calls during prayer times, letting others know you're praying.</p>
+              </div>
+              <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
                 <h4 className="text-2xl font-semibold text-blue-300 mb-4">Flexible Silent Periods</h4>
                 <p className="text-gray-400">Define precise start and end times for your desired quiet moments throughout the day.</p>
               </div>
               <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
                 <h4 className="text-2xl font-semibold text-blue-300 mb-4">Intuitive User Experience</h4>
                 <p className="text-gray-400">Effortlessly manage your silent periods and preferences with our user-friendly interface.</p>
+              </div>
+              <div className="bg-gray-800 p-8 rounded-lg transition-transform duration-300 hover:scale-105">
+                <h4 className="text-2xl font-semibold text-blue-300 mb-4">Prayer Time Sync</h4>
+                <p className="text-gray-400">Synchronize the app with your local prayer times for automated management of calls and notifications.</p>
               </div>
             </div>
           </div>
