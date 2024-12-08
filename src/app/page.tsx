@@ -185,6 +185,7 @@ export default function Home() {
               <Image src="/ss2.png" alt="Peace App Settings" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
               <Image src="/ss3.png" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
               <Image src="/ss4.png" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
+              <Image src="/ss5.png" alt="Peace App Schedule" width={250} height={500} className="rounded-lg shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer" />
             </div>
           </div>
         </section>
