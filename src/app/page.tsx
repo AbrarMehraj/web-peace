@@ -125,7 +125,7 @@ export default function Home() {
         <section className="bg-gray-800 py-20 text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-semibold text-blue-300 mb-6">Enjoy Uninterrupted Prayer Time</h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Experience tranquility during your prayers with Peace app. By automatically enabling Do Not Disturb (DND) mode during prayer times, Peace helps you maintain focus and devotion without any distractions.</p>
+            <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">Experience tranquility during your prayers with Prayer Mode app. By automatically enabling Do Not Disturb (DND) mode during prayer times, Prayer Mode helps you maintain focus and devotion without any distractions.</p>
             <div className="flex flex-col items-center">
               <a
                 href={versions[0].link}
@@ -212,7 +212,7 @@ export default function Home() {
 
       <footer className="bg-gray-900 py-8">
         <div className="container mx-auto px-4 text-center text-gray-400">
-          <p>&copy; 2024 Peace App. Developed by Abrar Mehraj</p>
+          <p>&copy; 2024 Prayer Mode. Developed by Abrar Mehraj</p>
         </div>
       </footer>
 
